@@ -1,38 +1,36 @@
 services:
-    catalog-api:
-        build: ./Catalog.API
-        ports:
-            - "5001:8080"
-        networks: 
-            - egradnet
+  catalog-api:
+    build: ./Catalog.API
+    ports:
+      - "5001:8080"
+    networks:
+      - egradnet
 
-    assignment-api:
-        build: ./Assignment.API
-        ports:
-            - "5001:8080"
-        networks: 
-            - egradnet
+  assignment-api:
+    build: ./Assignment.API
+    ports:
+      - "5002:8080"
+    networks:
+      - egradnet
 
-    evaluation-api:
-        build: ./Catalog.API
-        ports:
-            - "5001:8080"
-        networks: 
-            - egradnet
-    
-                
-    gateway:
-        build: ./Gateway
-        ports:
-            - "8080:8080"
-        depends_on:
-            - catalog-api
-            - assigment-api
-            - evaluation-api
-        networks: 
-            - egradnet
-        
+  evaluation-api:
+    build: ./Evaluation.API
+    ports:
+      - "5003:8080"
+    networks:
+      - egradnet
+
+  gateway:
+    build: ./Gateway
+    ports:
+      - "8080:8080"
+    depends_on:
+      - catalog-api
+      - assignment-api
+      - evaluation-api
+    networks:
+      - egradnet
+
 networks:
-    egradnet:
-        driver: bridge
-      
+  egradnet:
+    driver: bridge

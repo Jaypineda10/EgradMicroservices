@@ -10,5 +10,12 @@ namespace Assignment.API.Controllers
 
         [HttpGet]
         public IActionResult GetAll() => Ok(_assignments);
+
+        [HttpPost]
+        public IActionResult Add([FromBody] string name)
+        {
+            _assignments.Add(name);
+            return Ok(new { message = "Tarea creada", total = _assignments.Count });
+        }
     }
 }
