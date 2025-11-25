@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\ApiGateway",
+    "\\CustomerService",
+    "\\CustomerService\\CustomerService",
+    "\\OrderService",
+    "\\OrderService\\OrderService",
+    "\\ProductService"
+  ],
+  "SelectedNode": "\\docker-compose.yml",
+  "PreviewInSolutionExplorer": false
+}

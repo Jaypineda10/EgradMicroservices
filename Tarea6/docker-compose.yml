@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  api-gateway:
+    build: ./ApiGateway
+    container_name: api-gateway
+    ports:
+      - "5000:80"
+    depends_on:
+      - productservice
+      - customerservice
+      - orderservice
+
+  productservice:
+    build: ./ProductService
+    container_name: productservice
+    ports:
+      - "5001:80"
+
+  customerservice:
+    build: ./CustomerService
+    container_name: customerservice
+    ports:
+      - "5002:80"
+
+  orderservice:
+    build: ./OrderService
+    container_name: orderservice
+    ports:
+      - "5003:80"
